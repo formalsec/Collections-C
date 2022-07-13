@@ -71,6 +71,8 @@ def execute_wasp(test: str, output_dir: str):
             '-e', '(invoke \"__original_main\")',
             '-m', str(instr_limit),
             '--workspace', output_dir,
+            # TODO: change this to a flag
+            '-static'
         ]
 
     try:
