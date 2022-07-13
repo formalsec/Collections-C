@@ -20,35 +20,35 @@
     call $slist_new
     drop
     i32.const 0
-    i32.const 1038
+    i32.const 1024
     i32.symbolic
     i32.store offset=1052
     i32.const 0
-    i32.const 1036
+    i32.const 1026
     i32.symbolic
     i32.store offset=1056
     i32.const 0
-    i32.const 1034
+    i32.const 1028
     i32.symbolic
     i32.store offset=1060
     i32.const 0
-    i32.const 1032
+    i32.const 1030
     i32.symbolic
     i32.store offset=1064
     i32.const 0
-    i32.const 1030
+    i32.const 1032
     i32.symbolic
     i32.store offset=1068
     i32.const 0
-    i32.const 1028
+    i32.const 1034
     i32.symbolic
     i32.store offset=1072
     i32.const 0
-    i32.const 1026
+    i32.const 1036
     i32.symbolic
     i32.store offset=1076
     i32.const 0
-    i32.const 1024
+    i32.const 1038
     i32.symbolic
     i32.store offset=1080
     local.get 0
@@ -183,7 +183,7 @@
     i32.load offset=1048
     call $slist_destroy)
   (func $__original_main (type 3) (result i32)
-    (local i32)
+    (local i32 i32)
     global.get 0
     i32.const 16
     i32.sub
@@ -220,6 +220,7 @@
     local.get 0
     i32.const 8
     i32.add
+    local.tee 1
     call $slist_get_last
     drop
     i32.const 0
@@ -233,9 +234,7 @@
     sym_assert
     i32.const 0
     i32.load offset=1044
-    local.get 0
-    i32.const 8
-    i32.add
+    local.get 1
     call $slist_get_first
     drop
     i32.const 0
@@ -250,9 +249,7 @@
     i32.const 0
     i32.load offset=1044
     i32.const 4
-    local.get 0
-    i32.const 8
-    i32.add
+    local.get 1
     call $slist_get_at
     drop
     i32.const 0
@@ -454,8 +451,9 @@
     local.get 0
     i32.store offset=12
     local.get 1
+    local.tee 0
     call $slist_conf_init
-    local.get 1
+    local.get 0
     local.get 1
     i32.load offset=12
     call $slist_new_conf
@@ -1170,5 +1168,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "h\00g\00f\00e\00d\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00d\00e\00f\00g\00h\00")
   (data (;1;) (i32.const 1040) "@\04\01\00"))

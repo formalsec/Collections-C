@@ -14,7 +14,7 @@
     i32.load offset=1036
     call $stack_destroy)
   (func $__original_main (type 4) (result i32)
-    (local i32)
+    (local i32 i32 i32)
     global.get 0
     i32.const 32
     i32.sub
@@ -25,7 +25,7 @@
     i32.store offset=28
     call $setup_tests
     local.get 0
-    i32.const 1028
+    i32.const 1024
     i32.symbolic
     i32.store offset=24
     local.get 0
@@ -33,7 +33,7 @@
     i32.symbolic
     i32.store offset=20
     local.get 0
-    i32.const 1024
+    i32.const 1028
     i32.symbolic
     i32.store offset=16
     i32.const 0
@@ -41,6 +41,7 @@
     local.get 0
     i32.const 24
     i32.add
+    local.tee 1
     call $stack_push
     drop
     i32.const 0
@@ -48,11 +49,10 @@
     local.get 0
     i32.const 12
     i32.add
+    local.tee 2
     call $stack_peek
     drop
-    local.get 0
-    i32.const 24
-    i32.add
+    local.get 1
     local.get 0
     i32.load offset=12
     i32.eq
@@ -64,18 +64,15 @@
     local.get 0
     i32.const 20
     i32.add
+    local.tee 1
     call $stack_push
     drop
     i32.const 0
     i32.load offset=1036
-    local.get 0
-    i32.const 12
-    i32.add
+    local.get 2
     call $stack_peek
     drop
-    local.get 0
-    i32.const 20
-    i32.add
+    local.get 1
     local.get 0
     i32.load offset=12
     i32.eq
@@ -87,18 +84,15 @@
     local.get 0
     i32.const 16
     i32.add
+    local.tee 1
     call $stack_push
     drop
     i32.const 0
     i32.load offset=1036
-    local.get 0
-    i32.const 12
-    i32.add
+    local.get 2
     call $stack_peek
     drop
-    local.get 0
-    i32.const 16
-    i32.add
+    local.get 1
     local.get 0
     i32.load offset=12
     i32.eq
@@ -904,10 +898,9 @@
     local.get 1
     i32.const 8
     i32.add
+    local.tee 0
     call $stack_conf_init
-    local.get 1
-    i32.const 8
-    i32.add
+    local.get 0
     local.get 1
     i32.load offset=28
     call $stack_new_conf
@@ -1134,5 +1127,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00")
   (data (;1;) (i32.const 1032) "\10\04\01\00"))

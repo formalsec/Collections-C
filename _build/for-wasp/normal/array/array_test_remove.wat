@@ -113,10 +113,9 @@
     local.get 1
     i32.const 8
     i32.add
+    local.tee 0
     call $array_conf_init
-    local.get 1
-    i32.const 8
-    i32.add
+    local.get 0
     local.get 1
     i32.load offset=28
     call $array_new_conf

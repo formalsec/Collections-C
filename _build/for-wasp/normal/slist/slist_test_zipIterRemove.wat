@@ -22,18 +22,20 @@
     i32.load offset=1052
     call $slist_destroy)
   (func $__original_main (type 3) (result i32)
-    (local i32 i32)
+    (local i32 i32 i32)
     global.get 0
     i32.const 144
     i32.sub
     local.tee 0
     global.set 0
+    i32.const 0
+    local.set 1
     local.get 0
     i32.const 0
     i32.store offset=140
     call $setup_test
     local.get 0
-    i32.const 1040
+    i32.const 1024
     i32.symbolic
     i32.store offset=136
     local.get 0
@@ -58,7 +60,7 @@
     i32.const 0
     i32.store8 offset=135
     local.get 0
-    i32.const 1038
+    i32.const 1026
     i32.symbolic
     i32.store offset=128
     local.get 0
@@ -83,7 +85,7 @@
     i32.const 0
     i32.store8 offset=127
     local.get 0
-    i32.const 1036
+    i32.const 1028
     i32.symbolic
     i32.store offset=120
     local.get 0
@@ -108,7 +110,7 @@
     i32.const 0
     i32.store8 offset=119
     local.get 0
-    i32.const 1034
+    i32.const 1030
     i32.symbolic
     i32.store offset=112
     local.get 0
@@ -158,7 +160,7 @@
     i32.const 0
     i32.store8 offset=103
     local.get 0
-    i32.const 1030
+    i32.const 1034
     i32.symbolic
     i32.store offset=96
     local.get 0
@@ -183,7 +185,7 @@
     i32.const 0
     i32.store8 offset=95
     local.get 0
-    i32.const 1028
+    i32.const 1036
     i32.symbolic
     i32.store offset=88
     local.get 0
@@ -208,7 +210,7 @@
     i32.const 0
     i32.store8 offset=87
     local.get 0
-    i32.const 1026
+    i32.const 1038
     i32.symbolic
     i32.store offset=80
     local.get 0
@@ -233,7 +235,7 @@
     i32.const 0
     i32.store8 offset=79
     local.get 0
-    i32.const 1024
+    i32.const 1040
     i32.symbolic
     i32.store offset=72
     local.get 0
@@ -257,8 +259,6 @@
     local.get 0
     i32.const 0
     i32.store8 offset=71
-    i32.const 0
-    local.set 1
     block  ;; label = @1
       local.get 0
       i32.load offset=128
@@ -287,12 +287,12 @@
       i32.ne
       local.set 1
     end
+    i32.const 0
+    local.set 2
     local.get 1
     i32.const 1
     i32.and
     sym_assume
-    i32.const 0
-    local.set 1
     block  ;; label = @1
       local.get 0
       i32.load offset=96
@@ -308,9 +308,9 @@
       local.get 0
       i32.load offset=88
       i32.ne
-      local.set 1
+      local.set 2
     end
-    local.get 1
+    local.get 2
     i32.const 1
     i32.and
     sym_assume
@@ -423,6 +423,7 @@
     local.get 0
     i32.const 126
     i32.add
+    local.tee 1
     local.get 0
     i32.load offset=20
     call $CHECK_EQUAL_C_STRING
@@ -435,9 +436,7 @@
     i32.const 0
     i32.const 0
     i32.load offset=1048
-    local.get 0
-    i32.const 126
-    i32.add
+    local.get 1
     call $slist_contains
     i32.eq
     i32.const 1
@@ -540,10 +539,10 @@
       end
     end
     local.get 0
-    i32.const 1041
+    i32.const 1042
     i32.store offset=12
     local.get 0
-    i32.const 1041
+    i32.const 1042
     i32.store offset=8
     i32.const 7
     i32.const 0
@@ -551,6 +550,7 @@
     local.get 0
     i32.const 12
     i32.add
+    local.tee 1
     call $slist_get_first
     i32.eq
     i32.const 1
@@ -562,6 +562,7 @@
     local.get 0
     i32.const 8
     i32.add
+    local.tee 2
     call $slist_get_last
     i32.eq
     i32.const 1
@@ -569,27 +570,22 @@
     sym_assert
     i32.const 0
     i32.load offset=1048
-    local.get 0
-    i32.const 12
-    i32.add
+    local.get 1
     call $slist_get_first
     drop
     local.get 0
     i32.const 110
     i32.add
+    local.tee 1
     local.get 0
     i32.load offset=12
     call $CHECK_EQUAL_C_STRING
     i32.const 0
     i32.load offset=1048
-    local.get 0
-    i32.const 8
-    i32.add
+    local.get 2
     call $slist_get_last
     drop
-    local.get 0
-    i32.const 110
-    i32.add
+    local.get 1
     local.get 0
     i32.load offset=8
     call $CHECK_EQUAL_C_STRING
@@ -878,8 +874,9 @@
     local.get 0
     i32.store offset=12
     local.get 1
+    local.tee 0
     call $slist_conf_init
-    local.get 1
+    local.get 0
     local.get 1
     i32.load offset=12
     call $slist_new_conf
@@ -1848,5 +1845,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "i\00h\00g\00f\00e\00d\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00d\00e\00f\00g\00h\00i\00\00")
   (data (;1;) (i32.const 1044) " \04\01\00"))

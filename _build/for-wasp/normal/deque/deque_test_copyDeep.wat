@@ -40,7 +40,7 @@
     call $malloc
     i32.store offset=32
     local.get 0
-    i32.const 1028
+    i32.const 1024
     i32.symbolic
     i32.store offset=28
     local.get 0
@@ -48,7 +48,7 @@
     i32.symbolic
     i32.store offset=24
     local.get 0
-    i32.const 1024
+    i32.const 1028
     i32.symbolic
     i32.store offset=20
     local.get 0
@@ -421,10 +421,9 @@
     local.get 1
     i32.const 8
     i32.add
+    local.tee 0
     call $deque_conf_init
-    local.get 1
-    i32.const 8
-    i32.add
+    local.get 0
     local.get 1
     i32.load offset=28
     call $deque_new_conf
@@ -1474,5 +1473,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $copy $free $malloc $calloc)
-  (data (;0;) (i32.const 1024) "z\00y\00x\00")
+  (data (;0;) (i32.const 1024) "x\00y\00z\00")
   (data (;1;) (i32.const 1032) " \04\01\00"))

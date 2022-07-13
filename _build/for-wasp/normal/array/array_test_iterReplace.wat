@@ -7,7 +7,7 @@
   (type (;5;) (func (param i32 i32 i32) (result i32)))
   (type (;6;) (func (param i32 i32)))
   (func $__original_main (type 3) (result i32)
-    (local i32 i32)
+    (local i32)
     global.get 0
     i32.const 64
     i32.sub
@@ -20,69 +20,56 @@
     call $array_new
     drop
     local.get 0
-    i32.const 1042
+    i32.const 1024
     i32.symbolic
     i32.store offset=56
     local.get 0
-    i32.const 1040
+    i32.const 1026
     i32.symbolic
     i32.store offset=52
     local.get 0
-    i32.const 1038
+    i32.const 1028
     i32.symbolic
     i32.store offset=48
     local.get 0
-    i32.const 1036
+    i32.const 1030
     i32.symbolic
     i32.store offset=44
     local.get 0
-    i32.const 1024
+    i32.const 1032
     i32.symbolic
     i32.store offset=40
-    i32.const 0
-    local.set 1
-    block  ;; label = @1
-      local.get 0
-      i32.load offset=48
-      local.get 0
-      i32.load offset=56
-      i32.ne
-      i32.const 1
-      i32.and
-      i32.eqz
-      br_if 0 (;@1;)
-      i32.const 0
-      local.set 1
-      local.get 0
-      i32.load offset=48
-      local.get 0
-      i32.load offset=52
-      i32.ne
-      i32.const 1
-      i32.and
-      i32.eqz
-      br_if 0 (;@1;)
-      i32.const 0
-      local.set 1
-      local.get 0
-      i32.load offset=48
-      local.get 0
-      i32.load offset=44
-      i32.ne
-      i32.const 1
-      i32.and
-      i32.eqz
-      br_if 0 (;@1;)
-      local.get 0
-      i32.load offset=48
-      local.get 0
-      i32.load offset=40
-      i32.ne
-      local.set 1
-    end
-    local.get 1
+    local.get 0
+    i32.load offset=48
+    local.get 0
+    i32.load offset=56
+    i32.ne
     i32.const 1
     i32.and
+    local.get 0
+    i32.load offset=48
+    local.get 0
+    i32.load offset=52
+    i32.ne
+    i32.const 1
+    i32.and
+    call $__logand
+    local.get 0
+    i32.load offset=48
+    local.get 0
+    i32.load offset=44
+    i32.ne
+    i32.const 1
+    i32.and
+    call $__logand
+    local.get 0
+    i32.load offset=48
+    local.get 0
+    i32.load offset=40
+    i32.ne
+    i32.const 1
+    i32.and
+    call $__logand
     sym_assume
     i32.const 0
     i32.load offset=1048
@@ -208,10 +195,9 @@
     local.get 1
     i32.const 8
     i32.add
+    local.tee 0
     call $array_conf_init
-    local.get 1
-    i32.const 8
-    i32.add
+    local.get 0
     local.get 1
     i32.load offset=28
     call $array_new_conf
@@ -984,6 +970,27 @@
     i32.add
     global.set 0
     local.get 2)
+  (func $__logand (type 0) (param i32 i32) (result i32)
+    (local i32)
+    global.get 0
+    i32.const 16
+    i32.sub
+    local.tee 2
+    local.get 0
+    i32.store offset=8
+    local.get 2
+    local.get 1
+    i32.store offset=4
+    local.get 0
+    i32.const 0
+    i32.ne
+    local.get 1
+    i32.const 0
+    i32.ne
+    i32.and
+    return
+    local.get 2
+    i32.load offset=12)
   (func $malloc (type 1) (param i32) (result i32)
     (local i32)
     global.get 0
@@ -1267,5 +1274,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "replacement\00d\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00d\00replacement\00")
   (data (;1;) (i32.const 1044) " \04\01\00"))

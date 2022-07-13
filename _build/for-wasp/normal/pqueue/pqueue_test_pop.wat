@@ -7,7 +7,7 @@
   (type (;5;) (func (param i32 i32 i32) (result i32)))
   (type (;6;) (func (param i32 i32)))
   (func $setup_tests (type 3)
-    (local i32)
+    (local i32 i32)
     global.get 0
     i32.const 32
     i32.sub
@@ -20,11 +20,10 @@
     local.get 0
     i32.const 8
     i32.add
+    local.tee 1
     i32.const 2
     call $pqueue_conf_init
-    local.get 0
-    i32.const 8
-    i32.add
+    local.get 1
     i32.const 1052
     call $pqueue_new_conf
     drop
@@ -119,30 +118,32 @@
     i32.load offset=1052
     call $pqueue_destroy)
   (func $__original_main (type 4) (result i32)
-    (local i32 i32)
+    (local i32 i32 i32 i32 i32 i32)
     global.get 0
     i32.const 48
     i32.sub
     local.tee 0
     global.set 0
+    i32.const 0
+    local.set 1
     local.get 0
     i32.const 0
     i32.store offset=44
     call $setup_tests
     local.get 0
-    i32.const 1040
+    i32.const 1024
     i32.symbolic
     i32.store offset=40
     local.get 0
-    i32.const 1038
+    i32.const 1026
     i32.symbolic
     i32.store offset=36
     local.get 0
-    i32.const 1036
+    i32.const 1028
     i32.symbolic
     i32.store offset=32
     local.get 0
-    i32.const 1034
+    i32.const 1030
     i32.symbolic
     i32.store offset=28
     local.get 0
@@ -150,23 +151,21 @@
     i32.symbolic
     i32.store offset=24
     local.get 0
-    i32.const 1030
+    i32.const 1034
     i32.symbolic
     i32.store offset=20
     local.get 0
-    i32.const 1028
+    i32.const 1036
     i32.symbolic
     i32.store offset=16
     local.get 0
-    i32.const 1026
+    i32.const 1038
     i32.symbolic
     i32.store offset=12
     local.get 0
-    i32.const 1024
+    i32.const 1040
     i32.symbolic
     i32.store offset=8
-    i32.const 0
-    local.set 1
     block  ;; label = @1
       local.get 0
       i32.load offset=16
@@ -182,12 +181,12 @@
       i32.gt_s
       local.set 1
     end
+    i32.const 0
+    local.set 2
     local.get 1
     i32.const 1
     i32.and
     sym_assume
-    i32.const 0
-    local.set 1
     block  ;; label = @1
       local.get 0
       i32.load offset=12
@@ -201,14 +200,14 @@
       i32.load offset=12
       i32.const -8388608
       i32.gt_s
-      local.set 1
+      local.set 2
     end
-    local.get 1
+    i32.const 0
+    local.set 1
+    local.get 2
     i32.const 1
     i32.and
     sym_assume
-    i32.const 0
-    local.set 1
     block  ;; label = @1
       local.get 0
       i32.load offset=8
@@ -224,12 +223,12 @@
       i32.gt_s
       local.set 1
     end
+    i32.const 0
+    local.set 2
     local.get 1
     i32.const 1
     i32.and
     sym_assume
-    i32.const 0
-    local.set 1
     block  ;; label = @1
       local.get 0
       i32.load offset=16
@@ -245,9 +244,11 @@
       local.get 0
       i32.load offset=12
       i32.gt_s
-      local.set 1
+      local.set 2
     end
-    local.get 1
+    i32.const 0
+    local.set 3
+    local.get 2
     i32.const 1
     i32.and
     sym_assume
@@ -256,6 +257,7 @@
     local.get 0
     i32.const 12
     i32.add
+    local.tee 2
     call $pqueue_push
     drop
     i32.const 0
@@ -263,6 +265,7 @@
     local.get 0
     i32.const 16
     i32.add
+    local.tee 4
     call $pqueue_push
     drop
     i32.const 0
@@ -270,6 +273,7 @@
     local.get 0
     i32.const 8
     i32.add
+    local.tee 5
     call $pqueue_push
     drop
     i32.const 0
@@ -277,11 +281,10 @@
     local.get 0
     i32.const 4
     i32.add
+    local.tee 1
     call $pqueue_pop
     drop
-    local.get 0
-    i32.const 16
-    i32.add
+    local.get 4
     local.get 0
     i32.load offset=4
     i32.eq
@@ -290,14 +293,10 @@
     sym_assert
     i32.const 0
     i32.load offset=1048
-    local.get 0
-    i32.const 4
-    i32.add
+    local.get 1
     call $pqueue_pop
     drop
-    local.get 0
-    i32.const 8
-    i32.add
+    local.get 5
     local.get 0
     i32.load offset=4
     i32.eq
@@ -306,14 +305,10 @@
     sym_assert
     i32.const 0
     i32.load offset=1048
-    local.get 0
-    i32.const 4
-    i32.add
+    local.get 1
     call $pqueue_pop
     drop
-    local.get 0
-    i32.const 12
-    i32.add
+    local.get 2
     local.get 0
     i32.load offset=4
     i32.eq
@@ -344,8 +339,6 @@
     local.get 0
     i32.load offset=20
     i32.store offset=1076
-    i32.const 0
-    local.set 1
     block  ;; label = @1
       i32.const 1072
       i32.const 1056
@@ -361,9 +354,9 @@
       call $comp
       i32.const 0
       i32.gt_s
-      local.set 1
+      local.set 3
     end
-    local.get 1
+    local.get 3
     i32.const 1
     i32.and
     sym_assume
@@ -385,6 +378,7 @@
     i32.const 0
     i32.load offset=1052
     local.get 0
+    local.tee 1
     call $pqueue_pop
     drop
     i32.const 1072
@@ -396,7 +390,7 @@
     sym_assert
     i32.const 0
     i32.load offset=1052
-    local.get 0
+    local.get 1
     call $pqueue_pop
     drop
     i32.const 1056
@@ -408,7 +402,7 @@
     sym_assert
     i32.const 0
     i32.load offset=1052
-    local.get 0
+    local.get 1
     call $pqueue_pop
     drop
     i32.const 1064
@@ -710,10 +704,11 @@
     local.get 1
     i32.store offset=24
     local.get 2
+    local.tee 1
     local.get 2
     i32.load offset=24
     call $pqueue_conf_init
-    local.get 2
+    local.get 1
     local.get 2
     i32.load offset=28
     call $pqueue_new_conf
@@ -1653,5 +1648,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $comp2 $comp $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "z\00y\00x\00f\00e\00d\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00d\00e\00f\00x\00y\00z\00")
   (data (;1;) (i32.const 1044) "@\04\01\00"))

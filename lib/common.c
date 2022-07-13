@@ -21,6 +21,31 @@
 
 #include "common.h"
 
+int __logand(int a, int b) {
+  __asm__ __volatile__(
+    "local.get 0;"
+    "i32.const 0;"
+    "i32.ne;"
+    "local.get 1;"
+    "i32.const 0;"
+    "i32.ne;"
+    "i32.and;"
+    "return;"
+  );
+}
+
+int __logor(int a, int b) {
+  __asm__ __volatile__(
+    "local.get 0;"
+    "i32.const 0;"
+    "i32.ne;"
+    "local.get 1;"
+    "i32.const 0;"
+    "i32.ne;"
+    "i32.or;"
+    "return;"
+  );
+}
 
 /**
  * String comparator function.

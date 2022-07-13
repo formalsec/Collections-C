@@ -5,7 +5,7 @@
   (type (;3;) (func (result i32)))
   (type (;4;) (func (param i32 i32 i32) (result i32)))
   (func $__original_main (type 3) (result i32)
-    (local i32)
+    (local i32 i32 i32)
     global.get 0
     i32.const 32
     i32.sub
@@ -18,7 +18,7 @@
     call $array_new
     drop
     local.get 0
-    i32.const 1028
+    i32.const 1024
     i32.symbolic
     i32.store offset=24
     local.get 0
@@ -26,7 +26,7 @@
     i32.symbolic
     i32.store offset=20
     local.get 0
-    i32.const 1024
+    i32.const 1028
     i32.symbolic
     i32.store offset=16
     i32.const 0
@@ -34,6 +34,7 @@
     local.get 0
     i32.const 24
     i32.add
+    local.tee 1
     call $array_add
     drop
     i32.const 0
@@ -48,13 +49,12 @@
     local.get 0
     i32.const 16
     i32.add
+    local.tee 2
     call $array_add
     drop
     i32.const 0
     i32.load offset=1036
-    local.get 0
-    i32.const 24
-    i32.add
+    local.get 1
     local.get 0
     i32.const 12
     i32.add
@@ -62,9 +62,7 @@
     drop
     i32.const 0
     i32.load offset=1036
-    local.get 0
-    i32.const 16
-    i32.add
+    local.get 2
     local.get 0
     i32.const 8
     i32.add
@@ -105,10 +103,9 @@
     local.get 1
     i32.const 8
     i32.add
+    local.tee 0
     call $array_conf_init
-    local.get 1
-    i32.const 8
-    i32.add
+    local.get 0
     local.get 1
     i32.load offset=28
     call $array_new_conf
@@ -900,5 +897,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00")
   (data (;1;) (i32.const 1032) "\10\04\01\00"))

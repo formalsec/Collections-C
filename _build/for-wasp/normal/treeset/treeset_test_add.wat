@@ -12,62 +12,57 @@
     i32.sub
     local.tee 0
     global.set 0
-    local.get 0
-    i32.const 0
-    i32.store offset=12
     i32.const 1
     i32.const 1036
     call $treeset_new
     drop
     local.get 0
-    i32.const 1028
+    i32.const 1024
     i32.symbolic
-    i32.store offset=8
+    i32.store offset=12
     local.get 0
     i32.const 1026
     i32.symbolic
+    i32.store offset=8
+    local.get 0
+    i32.const 1028
+    i32.symbolic
     i32.store offset=4
     local.get 0
-    i32.const 1024
-    i32.symbolic
-    i32.store
-    i32.const 0
-    local.set 1
-    block  ;; label = @1
-      local.get 0
-      i32.load offset=8
-      local.get 0
-      i32.load offset=4
-      i32.ne
-      i32.const 1
-      i32.and
-      i32.eqz
-      br_if 0 (;@1;)
-      i32.const 0
-      local.set 1
-      local.get 0
-      i32.load offset=8
-      local.get 0
-      i32.load
-      i32.ne
-      i32.const 1
-      i32.and
-      i32.eqz
-      br_if 0 (;@1;)
-      local.get 0
-      i32.load offset=4
-      local.get 0
-      i32.load
-      i32.ne
-      local.set 1
-    end
-    local.get 1
+    i32.load offset=8
+    local.get 0
+    i32.load offset=12
+    i32.lt_s
+    i32.const 1
+    i32.and
+    sym_assume
+    local.get 0
+    i32.load offset=4
+    local.get 0
+    i32.load offset=12
+    i32.lt_s
+    i32.const 1
+    i32.and
+    sym_assume
+    local.get 0
+    i32.load offset=8
+    local.get 0
+    i32.load offset=4
+    i32.ne
     i32.const 1
     i32.and
     sym_assume
     i32.const 0
     i32.load offset=1036
     local.get 0
+    i32.const 12
+    i32.add
+    local.tee 1
+    call $treeset_add
+    drop
+    i32.const 0
+    i32.load offset=1036
+    local.get 0
     i32.const 8
     i32.add
     call $treeset_add
@@ -79,54 +74,20 @@
     i32.add
     call $treeset_add
     drop
-    i32.const 0
-    i32.load offset=1036
-    local.get 0
-    call $treeset_add
-    drop
-    i32.const 0
-    i32.load offset=1036
-    local.get 0
-    call $treeset_add
-    drop
-    i32.const 3
-    i32.const 0
-    i32.load offset=1036
-    call $treeset_size
-    i32.eq
-    i32.const 1
-    i32.and
-    sym_assert
     i32.const 1
     i32.const 0
     i32.load offset=1036
-    local.get 0
-    i32.const 8
-    i32.add
+    local.get 1
     call $treeset_contains
     i32.eq
     i32.const 1
     i32.and
     sym_assert
-    i32.const 1
-    i32.const 0
-    i32.load offset=1036
-    local.get 0
-    i32.const 4
-    i32.add
-    call $treeset_contains
-    i32.eq
-    i32.const 1
-    i32.and
-    sym_assert
-    local.get 0
-    i32.load offset=12
-    local.set 1
     local.get 0
     i32.const 16
     i32.add
     global.set 0
-    local.get 1)
+    i32.const 0)
   (func $malloc (type 2) (param i32) (result i32)
     (local i32)
     global.get 0
@@ -313,14 +274,13 @@
     local.get 2
     i32.const 8
     i32.add
+    local.tee 1
     call $treeset_conf_init
     local.get 2
     local.get 2
     i32.load offset=28
     i32.store offset=8
-    local.get 2
-    i32.const 8
-    i32.add
+    local.get 1
     local.get 2
     i32.load offset=24
     call $treeset_new_conf
@@ -487,26 +447,6 @@
     i32.add
     global.set 0
     local.get 1)
-  (func $treeset_size (type 2) (param i32) (result i32)
-    (local i32)
-    global.get 0
-    i32.const 16
-    i32.sub
-    local.tee 1
-    global.set 0
-    local.get 1
-    local.get 0
-    i32.store offset=12
-    local.get 1
-    i32.load offset=12
-    i32.load
-    call $treetable_size
-    local.set 0
-    local.get 1
-    i32.const 16
-    i32.add
-    global.set 0
-    local.get 0)
   (func $treetable_conf_init (type 1) (param i32)
     (local i32)
     global.get 0
@@ -774,17 +714,6 @@
     i32.add
     global.set 0
     local.get 1)
-  (func $treetable_size (type 2) (param i32) (result i32)
-    (local i32)
-    global.get 0
-    i32.const 16
-    i32.sub
-    local.tee 1
-    local.get 0
-    i32.store offset=12
-    local.get 1
-    i32.load offset=12
-    i32.load offset=8)
   (func $treetable_contains_key (type 0) (param i32 i32) (result i32)
     (local i32)
     global.get 0
@@ -1599,5 +1528,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $cmp $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00")
   (data (;1;) (i32.const 1032) "\10\04\01\00"))

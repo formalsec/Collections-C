@@ -12,6 +12,8 @@
     i32.sub
     local.tee 0
     global.set 0
+    i32.const 0
+    local.set 1
     local.get 0
     i32.const 0
     i32.store offset=60
@@ -20,7 +22,7 @@
     call $treetable_new
     drop
     local.get 0
-    i32.const 1028
+    i32.const 1024
     i32.symbolic
     i32.store offset=56
     local.get 0
@@ -28,7 +30,7 @@
     i32.symbolic
     i32.store offset=52
     local.get 0
-    i32.const 1024
+    i32.const 1028
     i32.symbolic
     i32.store offset=48
     local.get 0
@@ -36,7 +38,7 @@
     i32.symbolic
     i32.store offset=44
     local.get 0
-    i32.const 1038
+    i32.const 1032
     i32.symbolic
     i32.store offset=40
     local.get 0
@@ -47,7 +49,7 @@
     i32.const 0
     i32.store8 offset=39
     local.get 0
-    i32.const 1036
+    i32.const 1034
     i32.symbolic
     i32.store offset=32
     local.get 0
@@ -58,7 +60,7 @@
     i32.const 0
     i32.store8 offset=31
     local.get 0
-    i32.const 1034
+    i32.const 1036
     i32.symbolic
     i32.store offset=24
     local.get 0
@@ -69,7 +71,7 @@
     i32.const 0
     i32.store8 offset=23
     local.get 0
-    i32.const 1032
+    i32.const 1038
     i32.symbolic
     i32.store offset=16
     local.get 0
@@ -79,8 +81,6 @@
     local.get 0
     i32.const 0
     i32.store8 offset=15
-    i32.const 0
-    local.set 1
     block  ;; label = @1
       local.get 0
       i32.load offset=56
@@ -138,6 +138,7 @@
     local.get 0
     i32.const 52
     i32.add
+    local.tee 1
     local.get 0
     i32.const 22
     i32.add
@@ -155,9 +156,7 @@
     drop
     i32.const 0
     i32.load offset=1044
-    local.get 0
-    i32.const 52
-    i32.add
+    local.get 1
     local.get 0
     i32.const 8
     i32.add
@@ -376,14 +375,13 @@
     local.get 2
     i32.const 8
     i32.add
+    local.tee 1
     call $treetable_conf_init
     local.get 2
     local.get 2
     i32.load offset=28
     i32.store offset=8
-    local.get 2
-    i32.const 8
-    i32.add
+    local.get 1
     local.get 2
     i32.load offset=24
     call $treetable_new_conf
@@ -1703,5 +1701,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $cmp $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "z\00y\00x\00w\00d\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "x\00y\00z\00w\00a\00b\00c\00d\00")
   (data (;1;) (i32.const 1040) " \04\01\00"))

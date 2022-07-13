@@ -16,7 +16,7 @@
     i32.load offset=1036
     call $deque_destroy)
   (func $__original_main (type 4) (result i32)
-    (local i32)
+    (local i32 i32)
     global.get 0
     i32.const 48
     i32.sub
@@ -29,13 +29,12 @@
     local.get 0
     i32.const 24
     i32.add
+    local.tee 1
     call $deque_conf_init
     local.get 0
     i32.const 2
     i32.store offset=24
-    local.get 0
-    i32.const 24
-    i32.add
+    local.get 1
     local.get 0
     i32.const 20
     i32.add
@@ -50,7 +49,7 @@
     i32.and
     sym_assert
     local.get 0
-    i32.const 1028
+    i32.const 1024
     i32.symbolic
     i32.store offset=16
     local.get 0
@@ -58,7 +57,7 @@
     i32.symbolic
     i32.store offset=12
     local.get 0
-    i32.const 1024
+    i32.const 1028
     i32.symbolic
     i32.store offset=8
     local.get 0
@@ -345,10 +344,9 @@
     local.get 1
     i32.const 8
     i32.add
+    local.tee 0
     call $deque_conf_init
-    local.get 1
-    i32.const 8
-    i32.add
+    local.get 0
     local.get 1
     i32.load offset=28
     call $deque_new_conf
@@ -1060,5 +1058,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00")
   (data (;1;) (i32.const 1032) " \04\01\00"))

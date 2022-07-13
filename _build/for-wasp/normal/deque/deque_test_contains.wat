@@ -16,7 +16,7 @@
     i32.load offset=1044
     call $deque_destroy)
   (func $__original_main (type 4) (result i32)
-    (local i32)
+    (local i32 i32 i32)
     global.get 0
     i32.const 32
     i32.sub
@@ -27,15 +27,15 @@
     i32.store offset=28
     call $setup_tests
     local.get 0
-    i32.const 1036
+    i32.const 1024
     i32.symbolic
     i32.store offset=24
     local.get 0
-    i32.const 1034
+    i32.const 1026
     i32.symbolic
     i32.store offset=20
     local.get 0
-    i32.const 1032
+    i32.const 1028
     i32.symbolic
     i32.store offset=16
     local.get 0
@@ -43,15 +43,15 @@
     i32.symbolic
     i32.store offset=12
     local.get 0
-    i32.const 1028
+    i32.const 1032
     i32.symbolic
     i32.store offset=8
     local.get 0
-    i32.const 1026
+    i32.const 1034
     i32.symbolic
     i32.store offset=4
     local.get 0
-    i32.const 1024
+    i32.const 1036
     i32.symbolic
     i32.store
     i32.const 0
@@ -59,6 +59,7 @@
     local.get 0
     i32.const 24
     i32.add
+    local.tee 1
     call $deque_add
     drop
     i32.const 0
@@ -87,6 +88,7 @@
     local.get 0
     i32.const 8
     i32.add
+    local.tee 2
     call $deque_add
     drop
     i32.const 0
@@ -98,17 +100,13 @@
     drop
     i32.const 0
     i32.load offset=1044
-    local.get 0
-    i32.const 24
-    i32.add
+    local.get 1
     call $deque_add
     drop
     i32.const 2
     i32.const 0
     i32.load offset=1044
-    local.get 0
-    i32.const 24
-    i32.add
+    local.get 1
     call $deque_contains
     i32.eq
     i32.const 1
@@ -126,9 +124,7 @@
     i32.const 1
     i32.const 0
     i32.load offset=1044
-    local.get 0
-    i32.const 8
-    i32.add
+    local.get 2
     call $deque_contains
     i32.eq
     i32.const 1
@@ -389,10 +385,9 @@
     local.get 1
     i32.const 8
     i32.add
+    local.tee 0
     call $deque_conf_init
-    local.get 1
-    i32.const 8
-    i32.add
+    local.get 0
     local.get 1
     i32.load offset=28
     call $deque_new_conf
@@ -1171,5 +1166,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "g\00f\00e\00d\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00d\00e\00f\00g\00")
   (data (;1;) (i32.const 1040) " \04\01\00"))

@@ -19,7 +19,7 @@
     i32.load offset=1040
     call $list_destroy)
   (func $__original_main (type 3) (result i32)
-    (local i32)
+    (local i32 i32)
     global.get 0
     i32.const 48
     i32.sub
@@ -27,7 +27,7 @@
     global.set 0
     call $setup_tests
     local.get 0
-    i32.const 1030
+    i32.const 1024
     i32.symbolic
     i32.store offset=44
     local.get 0
@@ -38,7 +38,7 @@
     i32.const 0
     i32.store8 offset=43
     local.get 0
-    i32.const 1028
+    i32.const 1026
     i32.symbolic
     i32.store offset=36
     local.get 0
@@ -49,7 +49,7 @@
     i32.const 0
     i32.store8 offset=35
     local.get 0
-    i32.const 1026
+    i32.const 1028
     i32.symbolic
     i32.store offset=28
     local.get 0
@@ -60,7 +60,7 @@
     i32.const 0
     i32.store8 offset=27
     local.get 0
-    i32.const 1024
+    i32.const 1030
     i32.symbolic
     i32.store offset=20
     local.get 0
@@ -119,6 +119,7 @@
     local.get 0
     i32.const 12
     i32.add
+    local.tee 1
     call $list_get_first
     drop
     local.get 0
@@ -130,9 +131,7 @@
     sym_assert
     i32.const 0
     i32.load offset=1036
-    local.get 0
-    i32.const 12
-    i32.add
+    local.get 1
     call $list_get_last
     drop
     local.get 0
@@ -332,8 +331,9 @@
     local.get 0
     i32.store offset=12
     local.get 1
+    local.tee 0
     call $list_conf_init
-    local.get 1
+    local.get 0
     local.get 1
     i32.load offset=12
     call $list_new_conf
@@ -922,5 +922,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "d\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00d\00")
   (data (;1;) (i32.const 1032) " \04\01\00"))

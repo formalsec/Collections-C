@@ -37,36 +37,36 @@
     i32.sub
     local.tee 0
     global.set 0
+    i32.const 0
+    local.set 1
     local.get 0
     i32.const 0
     i32.store offset=28
     call $setup_tests
     local.get 0
-    i32.const 1034
+    i32.const 1024
     i32.symbolic
     i32.store offset=24
     local.get 0
-    i32.const 1032
+    i32.const 1026
     i32.symbolic
     i32.store offset=20
     local.get 0
-    i32.const 1030
+    i32.const 1028
     i32.symbolic
     i32.store offset=16
     local.get 0
-    i32.const 1028
+    i32.const 1030
     i32.symbolic
     i32.store offset=12
     local.get 0
-    i32.const 1026
+    i32.const 1032
     i32.symbolic
     i32.store offset=8
     local.get 0
-    i32.const 1024
+    i32.const 1034
     i32.symbolic
     i32.store offset=4
-    i32.const 0
-    local.set 1
     block  ;; label = @1
       local.get 0
       i32.const 12
@@ -184,6 +184,7 @@
     i32.const 0
     i32.load offset=1040
     local.get 0
+    local.tee 1
     call $deque_remove_first
     drop
     local.get 0
@@ -197,7 +198,7 @@
     sym_assert
     i32.const 0
     i32.load offset=1040
-    local.get 0
+    local.get 1
     call $deque_remove_first
     drop
     local.get 0
@@ -211,7 +212,7 @@
     sym_assert
     i32.const 0
     i32.load offset=1040
-    local.get 0
+    local.get 1
     call $deque_remove_first
     drop
     local.get 0
@@ -592,10 +593,9 @@
     local.get 1
     i32.const 8
     i32.add
+    local.tee 0
     call $deque_conf_init
-    local.get 1
-    i32.const 8
-    i32.add
+    local.get 0
     local.get 1
     i32.load offset=28
     call $deque_new_conf
@@ -1964,5 +1964,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $pred1 $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "f\00e\00d\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00d\00e\00f\00")
   (data (;1;) (i32.const 1036) " \04\01\00"))

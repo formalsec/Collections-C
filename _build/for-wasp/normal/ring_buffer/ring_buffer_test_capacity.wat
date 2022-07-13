@@ -14,7 +14,7 @@
     i32.load offset=1052
     call $rbuf_destroy)
   (func $__original_main (type 3) (result i32)
-    (local i32 i32)
+    (local i32 i32 i32 i32)
     global.get 0
     i32.const 160
     i32.sub
@@ -25,7 +25,7 @@
     i32.store offset=156
     call $setup_test
     local.get 0
-    i32.const 1046
+    i32.const 1024
     i32.symbolic
     i32.store offset=108
     local.get 0
@@ -36,7 +36,7 @@
     i32.const 0
     i32.store8 offset=107
     local.get 0
-    i32.const 1044
+    i32.const 1026
     i32.symbolic
     i32.store offset=100
     local.get 0
@@ -47,7 +47,7 @@
     i32.const 0
     i32.store8 offset=99
     local.get 0
-    i32.const 1042
+    i32.const 1028
     i32.symbolic
     i32.store offset=92
     local.get 0
@@ -58,7 +58,7 @@
     i32.const 0
     i32.store8 offset=91
     local.get 0
-    i32.const 1040
+    i32.const 1030
     i32.symbolic
     i32.store offset=84
     local.get 0
@@ -69,7 +69,7 @@
     i32.const 0
     i32.store8 offset=83
     local.get 0
-    i32.const 1038
+    i32.const 1032
     i32.symbolic
     i32.store offset=76
     local.get 0
@@ -80,7 +80,7 @@
     i32.const 0
     i32.store8 offset=75
     local.get 0
-    i32.const 1036
+    i32.const 1034
     i32.symbolic
     i32.store offset=68
     local.get 0
@@ -91,7 +91,7 @@
     i32.const 0
     i32.store8 offset=67
     local.get 0
-    i32.const 1034
+    i32.const 1036
     i32.symbolic
     i32.store offset=60
     local.get 0
@@ -102,7 +102,7 @@
     i32.const 0
     i32.store8 offset=59
     local.get 0
-    i32.const 1032
+    i32.const 1038
     i32.symbolic
     i32.store offset=52
     local.get 0
@@ -113,7 +113,7 @@
     i32.const 0
     i32.store8 offset=51
     local.get 0
-    i32.const 1030
+    i32.const 1040
     i32.symbolic
     i32.store offset=44
     local.get 0
@@ -124,7 +124,7 @@
     i32.const 0
     i32.store8 offset=43
     local.get 0
-    i32.const 1028
+    i32.const 1042
     i32.symbolic
     i32.store offset=36
     local.get 0
@@ -210,48 +210,66 @@
     i32.add
     i64.const 0
     i64.store
-    local.get 0
+    local.get 1
     local.get 0
     i32.load offset=108
-    i32.store offset=112
-    local.get 0
+    i32.store
+    local.get 1
+    i32.const 4
+    i32.add
     local.get 0
     i32.load offset=100
-    i32.store offset=116
-    local.get 0
+    i32.store
+    local.get 1
+    i32.const 8
+    i32.add
     local.get 0
     i32.load offset=92
-    i32.store offset=120
-    local.get 0
+    i32.store
+    local.get 1
+    i32.const 12
+    i32.add
     local.get 0
     i32.load offset=84
-    i32.store offset=124
-    local.get 0
+    i32.store
+    local.get 1
+    i32.const 16
+    i32.add
     local.get 0
     i32.load offset=76
-    i32.store offset=128
-    local.get 0
+    i32.store
+    local.get 1
+    i32.const 20
+    i32.add
     local.get 0
     i32.load offset=68
-    i32.store offset=132
-    local.get 0
+    i32.store
+    local.get 1
+    i32.const 24
+    i32.add
     local.get 0
     i32.load offset=60
-    i32.store offset=136
-    local.get 0
+    i32.store
+    local.get 1
+    i32.const 28
+    i32.add
     local.get 0
     i32.load offset=52
-    i32.store offset=140
-    local.get 0
+    i32.store
+    local.get 1
+    i32.const 32
+    i32.add
     local.get 0
     i32.load offset=44
-    i32.store offset=144
-    local.get 0
+    i32.store
+    local.get 1
+    i32.const 36
+    i32.add
     local.get 0
     i32.load offset=36
-    i32.store offset=148
-    local.get 0
-    i32.load offset=112
+    i32.store
+    local.get 1
+    i32.load
     i32.const 0
     i32.load offset=1052
     i32.const 0
@@ -260,8 +278,10 @@
     i32.const 1
     i32.and
     sym_assert
-    local.get 0
-    i32.load offset=116
+    local.get 1
+    i32.const 4
+    i32.add
+    i32.load
     i32.const 0
     i32.load offset=1052
     i32.const 1
@@ -271,7 +291,7 @@
     i32.and
     sym_assert
     local.get 0
-    i32.const 1026
+    i32.const 1044
     i32.symbolic
     i32.store offset=28
     local.get 0
@@ -282,7 +302,7 @@
     i32.const 0
     i32.store8 offset=27
     local.get 0
-    i32.const 1024
+    i32.const 1046
     i32.symbolic
     i32.store offset=20
     local.get 0
@@ -297,20 +317,20 @@
     local.get 0
     i32.const 26
     i32.add
+    local.tee 2
     call $rbuf_enqueue
     i32.const 0
     i32.load offset=1052
     local.get 0
     i32.const 18
     i32.add
+    local.tee 3
     call $rbuf_enqueue
     i32.const 0
     i32.load offset=1052
     i32.const 0
     call $rbuf_peek
-    local.get 0
-    i32.const 26
-    i32.add
+    local.get 2
     i32.eq
     i32.const 1
     i32.and
@@ -319,9 +339,7 @@
     i32.load offset=1052
     i32.const 1
     call $rbuf_peek
-    local.get 0
-    i32.const 18
-    i32.add
+    local.get 3
     i32.eq
     i32.const 1
     i32.and
@@ -333,8 +351,10 @@
     i32.add
     call $rbuf_dequeue
     drop
-    local.get 0
-    i32.load offset=120
+    local.get 1
+    i32.const 8
+    i32.add
+    i32.load
     local.get 0
     i32.load offset=12
     i32.eq
@@ -513,10 +533,9 @@
     local.get 1
     i32.const 8
     i32.add
+    local.tee 0
     call $rbuf_conf_init
-    local.get 1
-    i32.const 8
-    i32.add
+    local.get 0
     local.get 1
     i32.load offset=28
     call $rbuf_conf_new
@@ -923,5 +942,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "y\00x\00j\00i\00h\00g\00f\00e\00d\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00d\00e\00f\00g\00h\00i\00j\00x\00y\00")
   (data (;1;) (i32.const 1048) " \04\01\00"))

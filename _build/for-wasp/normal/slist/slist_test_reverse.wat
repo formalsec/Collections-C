@@ -31,27 +31,27 @@
     i32.store offset=92
     call $setup_test
     local.get 0
-    i32.const 1034
+    i32.const 1024
     i32.symbolic
     i32.store offset=88
     local.get 0
-    i32.const 1032
+    i32.const 1026
     i32.symbolic
     i32.store offset=84
     local.get 0
-    i32.const 1030
+    i32.const 1028
     i32.symbolic
     i32.store offset=80
     local.get 0
-    i32.const 1028
+    i32.const 1030
     i32.symbolic
     i32.store offset=76
     local.get 0
-    i32.const 1026
+    i32.const 1032
     i32.symbolic
     i32.store offset=72
     local.get 0
-    i32.const 1024
+    i32.const 1034
     i32.symbolic
     i32.store offset=68
     i32.const 0
@@ -362,8 +362,9 @@
     local.get 0
     i32.store offset=12
     local.get 1
+    local.tee 0
     call $slist_conf_init
-    local.get 1
+    local.get 0
     local.get 1
     i32.load offset=12
     call $slist_new_conf
@@ -959,5 +960,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "f\00e\00d\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00d\00e\00f\00")
   (data (;1;) (i32.const 1036) " \04\01\00"))

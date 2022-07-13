@@ -31,42 +31,42 @@
     i32.const 1
     i32.and)
   (func $__original_main (type 4) (result i32)
-    (local i32 i32)
+    (local i32 i32 i32 i32)
     global.get 0
     i32.const 48
     i32.sub
     local.tee 0
     global.set 0
+    i32.const 0
+    local.set 1
     local.get 0
     i32.const 0
     i32.store offset=44
     call $setup_tests
     local.get 0
-    i32.const 1034
+    i32.const 1024
     i32.symbolic
     i32.store offset=40
     local.get 0
-    i32.const 1032
+    i32.const 1026
     i32.symbolic
     i32.store offset=36
     local.get 0
-    i32.const 1030
+    i32.const 1028
     i32.symbolic
     i32.store offset=32
     local.get 0
-    i32.const 1028
+    i32.const 1030
     i32.symbolic
     i32.store offset=28
     local.get 0
-    i32.const 1026
+    i32.const 1032
     i32.symbolic
     i32.store offset=24
     local.get 0
-    i32.const 1024
+    i32.const 1034
     i32.symbolic
     i32.store offset=20
-    i32.const 0
-    local.set 1
     block  ;; label = @1
       local.get 0
       i32.const 28
@@ -144,6 +144,7 @@
     local.get 0
     i32.const 28
     i32.add
+    local.tee 1
     call $deque_add_last
     drop
     i32.const 0
@@ -151,6 +152,7 @@
     local.get 0
     i32.const 24
     i32.add
+    local.tee 2
     call $deque_add_last
     drop
     i32.const 0
@@ -158,6 +160,7 @@
     local.get 0
     i32.const 20
     i32.add
+    local.tee 3
     call $deque_add_last
     drop
     i32.const 6
@@ -195,29 +198,27 @@
     local.get 0
     i32.load offset=12
     i32.load
-    local.get 0
-    i32.const 28
-    i32.add
+    local.get 1
     i32.eq
     i32.const 1
     i32.and
     sym_assert
     local.get 0
     i32.load offset=12
-    i32.load offset=4
-    local.get 0
-    i32.const 24
+    i32.const 4
     i32.add
+    i32.load
+    local.get 2
     i32.eq
     i32.const 1
     i32.and
     sym_assert
     local.get 0
     i32.load offset=12
-    i32.load offset=8
-    local.get 0
-    i32.const 20
+    i32.const 8
     i32.add
+    i32.load
+    local.get 3
     i32.eq
     i32.const 1
     i32.and
@@ -480,10 +481,9 @@
     local.get 1
     i32.const 8
     i32.add
+    local.tee 0
     call $deque_conf_init
-    local.get 1
-    i32.const 8
-    i32.add
+    local.get 0
     local.get 1
     i32.load offset=28
     call $deque_new_conf
@@ -1344,5 +1344,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $pred2 $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "f\00e\00d\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00d\00e\00f\00")
   (data (;1;) (i32.const 1036) " \04\01\00"))

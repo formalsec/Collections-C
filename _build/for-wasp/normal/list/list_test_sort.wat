@@ -32,19 +32,19 @@
     i32.store offset=44
     call $setup_tests
     local.get 0
-    i32.const 1030
+    i32.const 1024
     i32.symbolic
     i32.store offset=40
     local.get 0
-    i32.const 1028
+    i32.const 1026
     i32.symbolic
     i32.store offset=36
     local.get 0
-    i32.const 1026
+    i32.const 1028
     i32.symbolic
     i32.store offset=32
     local.get 0
-    i32.const 1024
+    i32.const 1030
     i32.symbolic
     i32.store offset=28
     i32.const 0
@@ -83,12 +83,11 @@
     local.get 0
     i32.const 8
     i32.add
+    local.tee 1
     i32.const 0
     i32.load offset=1036
     call $list_iter_init
-    local.get 0
-    i32.const 8
-    i32.add
+    local.get 1
     local.get 0
     i32.const 4
     i32.add
@@ -530,8 +529,9 @@
     local.get 0
     i32.store offset=12
     local.get 1
+    local.tee 0
     call $list_conf_init
-    local.get 1
+    local.get 0
     local.get 1
     i32.load offset=12
     call $list_new_conf
@@ -1358,5 +1358,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $cmp $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "d\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00d\00")
   (data (;1;) (i32.const 1032) " \04\01\00"))

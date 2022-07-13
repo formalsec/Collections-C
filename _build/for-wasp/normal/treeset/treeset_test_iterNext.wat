@@ -12,6 +12,8 @@
     i32.sub
     local.tee 0
     global.set 0
+    i32.const 0
+    local.set 1
     local.get 0
     i32.const 0
     i32.store offset=60
@@ -20,23 +22,21 @@
     call $treeset_new
     drop
     local.get 0
-    i32.const 1030
+    i32.const 1024
     i32.symbolic
     i32.store offset=56
     local.get 0
-    i32.const 1028
+    i32.const 1026
     i32.symbolic
     i32.store offset=52
     local.get 0
-    i32.const 1026
+    i32.const 1028
     i32.symbolic
     i32.store offset=48
     local.get 0
-    i32.const 1024
+    i32.const 1030
     i32.symbolic
     i32.store offset=44
-    i32.const 0
-    local.set 1
     block  ;; label = @1
       local.get 0
       i32.load offset=56
@@ -427,14 +427,13 @@
     local.get 2
     i32.const 8
     i32.add
+    local.tee 1
     call $treeset_conf_init
     local.get 2
     local.get 2
     i32.load offset=28
     i32.store offset=8
-    local.get 2
-    i32.const 8
-    i32.add
+    local.get 1
     local.get 2
     i32.load offset=24
     call $treeset_new_conf
@@ -1817,5 +1816,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $cmp $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "d\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00d\00")
   (data (;1;) (i32.const 1032) "\10\04\01\00"))

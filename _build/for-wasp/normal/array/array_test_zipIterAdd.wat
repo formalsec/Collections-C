@@ -6,7 +6,7 @@
   (type (;4;) (func (param i32 i32 i32) (result i32)))
   (type (;5;) (func (param i32 i32 i32)))
   (func $__original_main (type 3) (result i32)
-    (local i32 i32)
+    (local i32 i32 i32 i32 i32 i32 i32 i32 i32)
     global.get 0
     i32.const 112
     i32.sub
@@ -19,7 +19,7 @@
     call $array_new
     drop
     local.get 0
-    i32.const 1040
+    i32.const 1024
     i32.symbolic
     i32.store offset=104
     local.get 0
@@ -30,7 +30,7 @@
     i32.const 0
     i32.store8 offset=103
     local.get 0
-    i32.const 1038
+    i32.const 1026
     i32.symbolic
     i32.store offset=96
     local.get 0
@@ -41,7 +41,7 @@
     i32.const 0
     i32.store8 offset=95
     local.get 0
-    i32.const 1036
+    i32.const 1028
     i32.symbolic
     i32.store offset=88
     local.get 0
@@ -52,7 +52,7 @@
     i32.const 0
     i32.store8 offset=87
     local.get 0
-    i32.const 1034
+    i32.const 1030
     i32.symbolic
     i32.store offset=80
     local.get 0
@@ -74,7 +74,7 @@
     i32.const 0
     i32.store8 offset=71
     local.get 0
-    i32.const 1030
+    i32.const 1034
     i32.symbolic
     i32.store offset=64
     local.get 0
@@ -85,7 +85,7 @@
     i32.const 0
     i32.store8 offset=63
     local.get 0
-    i32.const 1028
+    i32.const 1036
     i32.symbolic
     i32.store offset=56
     local.get 0
@@ -96,7 +96,7 @@
     i32.const 0
     i32.store8 offset=55
     local.get 0
-    i32.const 1026
+    i32.const 1038
     i32.symbolic
     i32.store offset=48
     local.get 0
@@ -107,7 +107,7 @@
     i32.const 0
     i32.store8 offset=47
     local.get 0
-    i32.const 1024
+    i32.const 1040
     i32.symbolic
     i32.store offset=40
     local.get 0
@@ -117,171 +117,171 @@
     local.get 0
     i32.const 0
     i32.store8 offset=39
-    i32.const 0
-    local.set 1
-    block  ;; label = @1
-      local.get 0
-      i32.const 102
-      i32.add
-      local.get 0
-      i32.const 94
-      i32.add
-      call $strcmp
-      i32.eqz
-      br_if 0 (;@1;)
-      i32.const 0
-      local.set 1
-      local.get 0
-      i32.const 86
-      i32.add
-      local.get 0
-      i32.const 94
-      i32.add
-      call $strcmp
-      i32.eqz
-      br_if 0 (;@1;)
-      i32.const 0
-      local.set 1
-      local.get 0
-      i32.const 86
-      i32.add
-      local.get 0
-      i32.const 102
-      i32.add
-      call $strcmp
-      i32.eqz
-      br_if 0 (;@1;)
-      i32.const 0
-      local.set 1
-      local.get 0
-      i32.const 86
-      i32.add
-      local.get 0
-      i32.const 78
-      i32.add
-      call $strcmp
-      i32.eqz
-      br_if 0 (;@1;)
-      i32.const 0
-      local.set 1
-      local.get 0
-      i32.const 78
-      i32.add
-      local.get 0
-      i32.const 94
-      i32.add
-      call $strcmp
-      i32.eqz
-      br_if 0 (;@1;)
-      i32.const 0
-      local.set 1
-      local.get 0
-      i32.const 102
-      i32.add
-      local.get 0
-      i32.const 46
-      i32.add
-      call $strcmp
-      i32.eqz
-      br_if 0 (;@1;)
-      i32.const 0
-      local.set 1
-      local.get 0
-      i32.const 86
-      i32.add
-      local.get 0
-      i32.const 46
-      i32.add
-      call $strcmp
-      i32.eqz
-      br_if 0 (;@1;)
-      i32.const 0
-      local.set 1
-      local.get 0
-      i32.const 78
-      i32.add
-      local.get 0
-      i32.const 46
-      i32.add
-      call $strcmp
-      i32.eqz
-      br_if 0 (;@1;)
-      i32.const 0
-      local.set 1
-      local.get 0
-      i32.const 94
-      i32.add
-      local.get 0
-      i32.const 46
-      i32.add
-      call $strcmp
-      i32.eqz
-      br_if 0 (;@1;)
-      i32.const 0
-      local.set 1
-      local.get 0
-      i32.const 38
-      i32.add
-      local.get 0
-      i32.const 70
-      i32.add
-      call $strcmp
-      i32.eqz
-      br_if 0 (;@1;)
-      i32.const 0
-      local.set 1
-      local.get 0
-      i32.const 38
-      i32.add
-      local.get 0
-      i32.const 54
-      i32.add
-      call $strcmp
-      i32.eqz
-      br_if 0 (;@1;)
-      local.get 0
-      i32.const 38
-      i32.add
-      local.get 0
-      i32.const 62
-      i32.add
-      call $strcmp
-      i32.const 0
-      i32.eq
-      i32.const -1
-      i32.xor
-      local.set 1
-    end
-    local.get 1
-    i32.const 1
-    i32.and
-    sym_assume
-    i32.const 0
-    i32.load offset=1048
     local.get 0
     i32.const 102
     i32.add
-    call $array_add
-    drop
-    i32.const 0
-    i32.load offset=1048
+    local.tee 1
     local.get 0
     i32.const 94
     i32.add
-    call $array_add
-    drop
+    local.tee 2
+    call $strcmp
     i32.const 0
-    i32.load offset=1048
+    i32.eq
+    i32.const -1
+    i32.xor
+    i32.const 1
+    i32.and
     local.get 0
     i32.const 86
     i32.add
+    local.tee 3
+    local.get 2
+    call $strcmp
+    i32.const 0
+    i32.eq
+    i32.const -1
+    i32.xor
+    i32.const 1
+    i32.and
+    call $__logand
+    local.get 3
+    local.get 1
+    call $strcmp
+    i32.const 0
+    i32.eq
+    i32.const -1
+    i32.xor
+    i32.const 1
+    i32.and
+    call $__logand
+    local.get 3
+    local.get 0
+    i32.const 78
+    i32.add
+    local.tee 4
+    call $strcmp
+    i32.const 0
+    i32.eq
+    i32.const -1
+    i32.xor
+    i32.const 1
+    i32.and
+    call $__logand
+    local.get 4
+    local.get 2
+    call $strcmp
+    i32.const 0
+    i32.eq
+    i32.const -1
+    i32.xor
+    i32.const 1
+    i32.and
+    call $__logand
+    local.get 1
+    local.get 0
+    i32.const 46
+    i32.add
+    local.tee 5
+    call $strcmp
+    i32.const 0
+    i32.eq
+    i32.const -1
+    i32.xor
+    i32.const 1
+    i32.and
+    call $__logand
+    local.get 3
+    local.get 5
+    call $strcmp
+    i32.const 0
+    i32.eq
+    i32.const -1
+    i32.xor
+    i32.const 1
+    i32.and
+    call $__logand
+    local.get 4
+    local.get 5
+    call $strcmp
+    i32.const 0
+    i32.eq
+    i32.const -1
+    i32.xor
+    i32.const 1
+    i32.and
+    call $__logand
+    local.get 2
+    local.get 5
+    call $strcmp
+    i32.const 0
+    i32.eq
+    i32.const -1
+    i32.xor
+    i32.const 1
+    i32.and
+    call $__logand
+    local.get 0
+    i32.const 38
+    i32.add
+    local.tee 5
+    local.get 0
+    i32.const 70
+    i32.add
+    local.tee 6
+    call $strcmp
+    i32.const 0
+    i32.eq
+    i32.const -1
+    i32.xor
+    i32.const 1
+    i32.and
+    call $__logand
+    local.get 5
+    local.get 0
+    i32.const 54
+    i32.add
+    local.tee 7
+    call $strcmp
+    i32.const 0
+    i32.eq
+    i32.const -1
+    i32.xor
+    i32.const 1
+    i32.and
+    call $__logand
+    local.get 5
+    local.get 0
+    i32.const 62
+    i32.add
+    local.tee 8
+    call $strcmp
+    i32.const 0
+    i32.eq
+    i32.const -1
+    i32.xor
+    i32.const 1
+    i32.and
+    call $__logand
+    sym_assume
+    i32.const 0
+    i32.load offset=1048
+    local.get 1
     call $array_add
     drop
     i32.const 0
     i32.load offset=1048
-    local.get 0
-    i32.const 78
-    i32.add
+    local.get 2
+    call $array_add
+    drop
+    i32.const 0
+    i32.load offset=1048
+    local.get 3
+    call $array_add
+    drop
+    i32.const 0
+    i32.load offset=1048
+    local.get 4
     call $array_add
     drop
     i32.const 1052
@@ -289,23 +289,17 @@
     drop
     i32.const 0
     i32.load offset=1052
-    local.get 0
-    i32.const 70
-    i32.add
+    local.get 6
     call $array_add
     drop
     i32.const 0
     i32.load offset=1052
-    local.get 0
-    i32.const 62
-    i32.add
+    local.get 8
     call $array_add
     drop
     i32.const 0
     i32.load offset=1052
-    local.get 0
-    i32.const 54
-    i32.add
+    local.get 7
     call $array_add
     drop
     local.get 0
@@ -363,9 +357,11 @@
     local.get 0
     i32.const 46
     i32.add
+    local.tee 3
     local.get 0
     i32.const 4
     i32.add
+    local.tee 2
     call $array_index_of
     i32.eq
     i32.const 1
@@ -384,9 +380,8 @@
     local.get 0
     i32.const 38
     i32.add
-    local.get 0
-    i32.const 4
-    i32.add
+    local.tee 1
+    local.get 2
     call $array_index_of
     i32.eq
     i32.const 1
@@ -405,9 +400,7 @@
     local.get 0
     i32.const 86
     i32.add
-    local.get 0
-    i32.const 4
-    i32.add
+    local.get 2
     call $array_index_of
     i32.eq
     i32.const 1
@@ -423,9 +416,7 @@
     i32.const 1
     i32.const 0
     i32.load offset=1048
-    local.get 0
-    i32.const 46
-    i32.add
+    local.get 3
     call $array_contains
     i32.eq
     i32.const 1
@@ -434,9 +425,7 @@
     i32.const 1
     i32.const 0
     i32.load offset=1052
-    local.get 0
-    i32.const 38
-    i32.add
+    local.get 1
     call $array_contains
     i32.eq
     i32.const 1
@@ -482,10 +471,9 @@
     local.get 1
     i32.const 8
     i32.add
+    local.tee 0
     call $array_conf_init
-    local.get 1
-    i32.const 8
-    i32.add
+    local.get 0
     local.get 1
     i32.load offset=28
     call $array_new_conf
@@ -1465,6 +1453,27 @@
     i32.add
     global.set 0
     local.get 2)
+  (func $__logand (type 0) (param i32 i32) (result i32)
+    (local i32)
+    global.get 0
+    i32.const 16
+    i32.sub
+    local.tee 2
+    local.get 0
+    i32.store offset=8
+    local.get 2
+    local.get 1
+    i32.store offset=4
+    local.get 0
+    i32.const 0
+    i32.ne
+    local.get 1
+    i32.const 0
+    i32.ne
+    i32.and
+    return
+    local.get 2
+    i32.load offset=12)
   (func $strcmp (type 0) (param i32 i32) (result i32)
     (local i32)
     global.get 0
@@ -1957,5 +1966,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "i\00h\00g\00f\00e\00d\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "a\00b\00c\00d\00e\00f\00g\00h\00i\00")
   (data (;1;) (i32.const 1044) " \04\01\00"))

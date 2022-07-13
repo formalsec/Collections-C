@@ -19,7 +19,7 @@
     i32.load offset=1032
     call $list_destroy)
   (func $__original_main (type 3) (result i32)
-    (local i32)
+    (local i32 i32)
     global.get 0
     i32.const 16
     i32.sub
@@ -48,6 +48,7 @@
     local.get 0
     i32.const 12
     i32.add
+    local.tee 1
     call $list_get_first
     drop
     local.get 0
@@ -59,9 +60,7 @@
     sym_assert
     i32.const 0
     i32.load offset=1028
-    local.get 0
-    i32.const 12
-    i32.add
+    local.get 1
     call $list_get_last
     drop
     local.get 0
@@ -277,8 +276,9 @@
     local.get 0
     i32.store offset=12
     local.get 1
+    local.tee 0
     call $list_conf_init
-    local.get 1
+    local.get 0
     local.get 1
     i32.load offset=12
     call $list_new_conf

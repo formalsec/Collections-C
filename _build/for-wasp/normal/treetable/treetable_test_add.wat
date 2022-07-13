@@ -6,7 +6,7 @@
   (type (;4;) (func (param i32 i32)))
   (type (;5;) (func (param i32 i32 i32) (result i32)))
   (func $__original_main (type 3) (result i32)
-    (local i32)
+    (local i32 i32 i32)
     global.get 0
     i32.const 48
     i32.sub
@@ -17,7 +17,7 @@
     call $treetable_new
     drop
     local.get 0
-    i32.const 1028
+    i32.const 1024
     i32.symbolic
     i32.store offset=44
     local.get 0
@@ -25,11 +25,11 @@
     i32.symbolic
     i32.store offset=40
     local.get 0
-    i32.const 1024
+    i32.const 1028
     i32.symbolic
     i32.store offset=36
     local.get 0
-    i32.const 1034
+    i32.const 1030
     i32.symbolic
     i32.store offset=32
     local.get 0
@@ -51,7 +51,7 @@
     i32.const 0
     i32.store8 offset=23
     local.get 0
-    i32.const 1030
+    i32.const 1034
     i32.symbolic
     i32.store offset=16
     local.get 0
@@ -82,6 +82,7 @@
     local.get 0
     i32.const 44
     i32.add
+    local.tee 1
     local.get 0
     i32.const 30
     i32.add
@@ -102,6 +103,7 @@
     local.get 0
     i32.const 36
     i32.add
+    local.tee 2
     local.get 0
     i32.const 14
     i32.add
@@ -110,9 +112,7 @@
     i32.const 1
     i32.const 0
     i32.load offset=1040
-    local.get 0
-    i32.const 44
-    i32.add
+    local.get 1
     call $treetable_contains_key
     i32.eq
     i32.const 1
@@ -121,9 +121,7 @@
     i32.const 1
     i32.const 0
     i32.load offset=1040
-    local.get 0
-    i32.const 36
-    i32.add
+    local.get 2
     call $treetable_contains_key
     i32.eq
     i32.const 1
@@ -330,14 +328,13 @@
     local.get 2
     i32.const 8
     i32.add
+    local.tee 1
     call $treetable_conf_init
     local.get 2
     local.get 2
     i32.load offset=28
     i32.store offset=8
-    local.get 2
-    i32.const 8
-    i32.add
+    local.get 1
     local.get 2
     i32.load offset=24
     call $treetable_new_conf
@@ -1487,5 +1484,5 @@
   (export "memory" (memory 0))
   (export "__original_main" (func $__original_main))
   (elem (;0;) (i32.const 1) $cmp $malloc $calloc $free)
-  (data (;0;) (i32.const 1024) "z\00y\00x\00c\00b\00a\00")
+  (data (;0;) (i32.const 1024) "x\00y\00z\00a\00b\00c\00")
   (data (;1;) (i32.const 1036) " \04\01\00"))
