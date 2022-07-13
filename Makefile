@@ -11,7 +11,7 @@ BUILD_DIR = _build
 OPT ?= -O0
 
 # Flags
-CFLAGS += -g -m32 -emit-llvm --target=wasm32 -c
+CFLAGS += -g -m32 -emit-llvm --target=wasm32 -c -fno-stack-protector
 CFLAGS += $(OPT) $(INCLUDES) $(WARN)
 
 # Includes
