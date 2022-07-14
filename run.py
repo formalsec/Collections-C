@@ -115,6 +115,7 @@ def run_test(test):
         'tloop' : report['loop_time'],
         'tsolv' : report['solver_time'],
         'specification': report['specification'],
+        'solver_counter': report['solver_counter'],
     }
 
 
@@ -123,6 +124,7 @@ def run_tests(dirs, output_file='results.csv'):
     for i, dir in enumerate(dirs):
         prev = 0
         sum_paths, sum_twasp, sum_tloop, sum_tsolv = 0, 0.0, 0.0, 0.0
+        solver_counter = 0
         info(f'Running tests in \'{dir}\'...', prefix='\n' if i > 0 else '')
         tests = glob.glob(os.path.join(dir, '*.wat'))
         for i, test in enumerate(tests):
@@ -139,6 +141,7 @@ def run_tests(dirs, output_file='results.csv'):
             sum_paths += result['paths']
             sum_tloop += float(result['tloop'])
             sum_tsolv += float(result['tsolv'])
+            solver_counter += result['solver_counter']
 
         results.append([
             os.path.basename(dir),
@@ -146,7 +149,8 @@ def run_tests(dirs, output_file='results.csv'):
             round(int(sum_paths)),
             round(sum_twasp, 3),
             round(sum_tloop, 3),
-            round(sum_tsolv, 3)
+            round(sum_tsolv, 3),
+            solver_counter
         ])
 
     if errors:
@@ -158,7 +162,7 @@ def run_tests(dirs, output_file='results.csv'):
          prefix='' if errors else '\n')
     with open(output_file, 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(['category', 'ni', 'sum-paths', 'Twasp', 'Tloop', 'Tsolver'])
+        writer.writerow(['category', 'ni', 'sum-paths', 'Twasp', 'Tloop', 'Tsolver', 'Scounter'])
         writer.writerows(results)
 
 
