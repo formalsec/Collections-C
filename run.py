@@ -24,6 +24,34 @@ BOLD = '\033[1m'
 PREFIX = '\033['
 SUFFIX = '\033[0m'
 
+TEST_RESULTS = []
+
+def output_individuals():
+    with open("all_normal.csv", "w", newline='') as f:
+        writer = csv.writer(f)
+        headers = [
+            "category",
+            "test_name",
+            "sum-paths",
+            "Twasp",
+            "Tloop",
+            "Tsolver",
+            "Scounter"
+            ]
+        writer.writerow(headers)
+        for res in TEST_RESULTS:
+            l = []
+            l.append(res["category"])
+            l.append(res["name"])
+            l.append(res["paths"])
+            l.append(res["twasp"])
+            l.append(res["tloop"])
+            l.append(res["tsolv"])
+            l.append(res["solver_counter"])
+            writer.writerow(l)
+
+        f.write('\n')
+
 TIME_LIMIT=60
 INST_LIMIT=10
 
@@ -72,7 +100,7 @@ def execute_wasp(test: str, output_dir: str):
             '-m', str(instr_limit),
             '--workspace', output_dir,
             # TODO: change this to a flag
-            '-static'
+            '-static',
         ]
 
     try:
@@ -93,9 +121,11 @@ def execute_wasp(test: str, output_dir: str):
 
 
 def run_test(test):
+    category = os.path.basename(os.path.dirname(test))
+    test_name = os.path.basename(test)
     output_dir = os.path.join('output',
-                              os.path.basename(os.path.dirname(test)),
-                              os.path.basename(test))
+                              category,
+                              test_name)
 
     tstart = time.time()
     execute_wasp(test, output_dir)
@@ -109,7 +139,9 @@ def run_test(test):
     with open(report_file, 'r') as f:
         report = json.load(f)
 
-    return {
+    res =  {
+        'category': category,
+        'name': test_name,
         'twasp' : tdelta,
         'paths' : report['paths_explored'],
         'tloop' : report['loop_time'],
@@ -117,6 +149,8 @@ def run_test(test):
         'specification': report['specification'],
         'solver_counter': report['solver_counter'],
     }
+    TEST_RESULTS.append(res)
+    return res
 
 
 def run_tests(dirs, output_file='results.csv'):
@@ -232,6 +266,8 @@ def main(argv=None):
         info('Sarting \'bugs\' Collections-C benchmarks...')
         run_tests(glob.glob('_build/for-wasp/bugs/*'),
                   output_file='results_bugs.csv')
+
+    output_individuals()
 
     return 0
 
